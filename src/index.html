@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Osmisměrný fotbálek</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main>
+    <h1>Osmisměrný fotbálek</h1>
+    <div class="controls">
+      <label>Režim
+        <select id="mode">
+          <option value="ai">Člověk proti počítači</option>
+          <option value="two">Dva hráči</option>
+        </select>
+      </label>
+      <label class="switch"><input type="checkbox" id="hints"> Nápověda tahů</label>
+      <label id="level-label">Obtížnost <select id="level"></select></label>
+    </div>
+    <div id="status"></div>
+    <canvas id="pitch"></canvas>
+    <div class="buttons">
+      <button id="new-game" type="button">Nová hra</button>
+      <button id="undo" type="button">Zpět</button>
+    </div>
+  </main>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
