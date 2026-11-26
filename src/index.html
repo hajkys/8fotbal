@@ -24,7 +24,22 @@
     <div class="buttons">
       <button id="new-game" type="button">Nová hra</button>
       <button id="undo" type="button">Zpět</button>
+      <button id="rules-btn" type="button">Pravidla hry</button>
     </div>
+
+    <dialog id="rules">
+      <h2>Pravidla hry</h2>
+      <ul>
+        <li><strong>Cíl:</strong> dostat míč do soupeřovy brány. Modrý útočí nahoru a brání dolní bránu, červený útočí dolů.</li>
+        <li><strong>Tah:</strong> míč se posune o jeden bod v jednom z 8 směrů (i úhlopříčně) a zanechá čáru. Po stejné čáře se znovu jít nedá, úhlopříčky se ale smějí křížit.</li>
+        <li><strong>Odraz:</strong> skončí-li míč v bodě, kde už nějaká čára končí, nebo na okraji hřiště, hráč táhne ještě jednou. Dorazí-li do nového bodu, je na tahu soupeř.</li>
+        <li><strong>Okraj hřiště</strong> je stěna – po lajně ani po tyči se hrát nesmí. Ústí brány mezi tyčemi je otevřené: lze jít po něm k tyči (ta je stěna). Střed ústí brány stěna není.</li>
+        <li><strong>Gól:</strong> padne, když míč dorazí do kteréhokoli ze tří bodů na zadní čáře brány. Vlastní gól vyhrává soupeř.</li>
+        <li><strong>Zablokování:</strong> kdo nemá kam táhnout, prohrává.</li>
+        <li><strong>Ovládání:</strong> klik nebo dotyk na bod, nebo klávesy <kbd>Q</kbd> <kbd>W</kbd> <kbd>E</kbd> / <kbd>A</kbd> <kbd>D</kbd> / <kbd>Z</kbd> <kbd>X</kbd> <kbd>C</kbd> (též numerická klávesnice). Je-li možný jediný tah, hra ho udělá sama.</li>
+      </ul>
+      <form method="dialog"><button>Zavřít</button></form>
+    </dialog>
   </main>
   <script type="module" src="js/main.js"></script>
 </body>

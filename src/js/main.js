@@ -20,6 +20,14 @@ const modeSel = document.getElementById('mode');
 const levelSel = document.getElementById('level');
 const levelLabel = document.getElementById('level-label');
 const hintsBox = document.getElementById('hints');
+const rulesBtn = document.getElementById('rules-btn');
+const rulesDialog = document.getElementById('rules');
+
+rulesBtn.addEventListener('click', () => rulesDialog.showModal());
+// zavření kliknutím mimo okno
+rulesDialog.addEventListener('click', (ev) => {
+  if (ev.target === rulesDialog) rulesDialog.close();
+});
 
 // Nápověda tahů (kuličky s písmeny kláves) – ve výchozím stavu vypnutá, volba se pamatuje.
 try {
@@ -41,7 +49,8 @@ let autoEnabled = true;   // po „Zpět“ se vypne, jinak by hra krok hned zop
 let timer = null;         // automatický tah člověka / tah počítače
 
 const isAiTurn = () => vsComputer && game.state.winner === null && game.state.currentPlayer === AI;
-const humanMoves = () => (isAiTurn() ? [] : game.legalMoves());
+// při otevřených pravidlech se tahy z klávesnice ani myši neprovádějí
+const humanMoves = () => (isAiTurn() || rulesDialog.open ? [] : game.legalMoves());
 
 function playerName(p) {
   if (vsComputer) return p === HUMAN ? 'Ty (modrý, útočíš nahoru)' : 'Počítač (červený)';
